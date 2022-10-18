@@ -59,6 +59,13 @@ I added the [updated final solution code](https://github.com/nic-dgl-204-fall-20
     val answer = lookAndSay(sampleNumber, timesNumber)
     println(answer)
     
+   
+   ## Reflection
+    
+The problem I choose was easy to understand initially because I was aware about these “Look and say” numbers but for the first time I faced a framed question related to these numbers. To do the first solution it took almost 30-40 minutes. My first approach was to only solve part 1 (with 40 times input) so I didn’t bother to make different functions because my aim was to get the logic first, that how I’ll be getting the length and when I understood the logic, I implemented the part 2 (for 50 times) and also put the code of taking the input from the user. Solving the problem with the second solution almost took 4-5 hours as I had to understand first what Regex class is, how patterns work in here, what are its properties, and what property can I use in my code ( I used ```findAll()```). I would mention again [regexr.com](https://regexr.com/) here because it was very helpful in all the terms related to regular expressions. 
+    
+Throughout, the assignment I had learnt a lot of new things and also practised some stuff which I would’ve forgotten till yet. For the first time, I interacted with AOC and wondered how they came up with new problems each year. Last year, I was introduced to regular expressions and learnt about some basic concepts related to them at that time but through this problem, I learnt a lot about regular expressions, especially about regex. Most of the references and resources I already mentioned above by which I able to solve this problem. Also, I tried using the proper commit process while updating the code still I feel that I have to learn more about it because at the time of uploading the first solution I directly uploaded the final execution on GitHub. Then during the second solution, I committed the code first then updated it and committed again with the changes. Although, I enjoyed a lot while learning all this new stuff and would love to continue solving one problem a week on AOC.
+
     
 
 
