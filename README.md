@@ -30,7 +30,26 @@ In the final solution, I used the [regex class](https://kotlinlang.org/api/lates
 
  I referred to [this video](https://www.youtube.com/watch?v=sXQxhojSdZM) to understand regular expressions more deeply and also used [regexr.com](https://regexr.com/) & [Kotlin Regex documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) to get insight into using the pattern ```\\d)\\1*``` by which every group of consecutive identical numbers matched. From the pattern, ```\d``` means we are matching a number under ```0-9``` and here we are taking a group to match any of the numbers.
  
- From the pattern, ```\1*``` means it matches the ```0``` or more of the increasing number. And we stored that pattern in the regex variable with the property to ```.toRegex()```. ```generateSequence``` work is to provide the ```seq``` string variable by which we will be accessing the length of the sequence and it will be our final result. To achieve this ```seq``` string variable we use a loop with ```regex.findAll(it)``` to create the string & length of the sequence, where ```m``` refers to the match result. Refer to the below code to understand how I used the regex class to solve this problem and for complete code please check the [final commit](https://github.com/nic-dgl-204-fall-2022/Prabhjot-aoc-1/commit/5e6f5b4f38e92838375c5f476be5e99ce30cc73a).
+ From the pattern, ```\1*``` means it matches the ```0``` or more of the increasing number. And we stored that pattern in the regex variable with the property to ```.toRegex()```. ```generateSequence``` work is to provide the ```seq``` string variable by which we will be accessing the length of the sequence and it will be our final result. To achieve this ```seq``` string variable we use a loop with ```regex.findAll(it)``` to create the string & length of the sequence, where ```m``` refers to the match result. 
+ 
+ Inside ```generateSequence``` the whole process takes place in ```buildString``` to create our ```seq``` String. ```buildString``` is an inline Kotlin implemented or declared function which helps to concatenate strings and keeps an eye on the performance. Here also we are concatenating the string ````seq``` using ```buildString``` which really helps to optimize the code, without ```buildString``` I had to add the ```.toString()``` and also I had to create the append function manually. The below code shows the same- 
+ 
+       
+       
+       val seq = generateSequence(userInput) {
+                regex.findAll(it).forEach { m ->
+                    append(m.value.length)
+                    append(m.value[0])
+                }.toString()
+            
+        }
+ 
+ 
+  So, I was looking for an inbuilt or declared function in Kotlin to solve this problem and finally landed on this [Kotlin docs buildString page](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html) which helped me to use it.  
+  
+  Now, after getting ```seq``` we are using ```elementAt``` which basically returns an element at the given index and here we are providing the ```timesInput``` which can be 40 or 50 according to the question and user can also input any other number to apply the process to their given number of times. Finally, with ```.length``` we will be getting ```result``` string which was our end goal. 
+ 
+ Refer to the below code to understand how I used the regex class and updated previous code using buildString to solve this problem and for complete code please check the [final commit](https://github.com/nic-dgl-204-fall-2022/Prabhjot-aoc-1/commit/5e6f5b4f38e92838375c5f476be5e99ce30cc73a).
  
          val regex = "(\\d)\\1*".toRegex()
 
