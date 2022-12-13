@@ -35,7 +35,7 @@ In the final solution, I used the [regex class](https://kotlinlang.org/api/lates
  Inside ```generateSequence``` the whole process takes place in `buildString` to create our `seq` String. `buildString` is an inline Kotlin implemented or declared function which helps to concatenate strings and keeps an eye on the performance. Here also we are concatenating the string `seq` using `buildString` which really helps to optimize the code, without `buildString` I had to add the `.toString()` and also I had to create the append function manually. The below code shows the same- 
  
        
-      ```kotlin 
+```kotlin 
        val seq = generateSequence(userInput) {
                 regex.findAll(it).forEach { m ->
                     append(m.value.length)
@@ -43,11 +43,11 @@ In the final solution, I used the [regex class](https://kotlinlang.org/api/lates
                 }.toString()
             
         }
- ```
+```
  
-  So, I was looking for an inbuilt or declared function in Kotlin to solve this problem and finally landed on this [Kotlin docs buildString page](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html) which helped me to use it.  
+ So, I was looking for an inbuilt or declared function in Kotlin to solve this problem and finally landed on this [Kotlin docs buildString page](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html) which helped me to use it.  
   
-  Now, after getting `seq` we are using `elementAt` which basically returns an element at the given index and here we are providing the `timesInput` which can be 40 or 50 according to the question and user can also input any other number to apply the process to their given number of times. Finally, with `.length` we will be getting ```result``` string which was our end goal. 
+  Now, after getting `seq` we are using `elementAt` which basically returns an element at the given index and here we are providing the `timesInput` which can be 40 or 50 according to the question and user can also input any other number to apply the process to their given number of times. Finally, with `.length` we will be getting `result` string which was our end goal. 
  
  Refer to the below code to understand how I used the regex class and updated previous code using buildString to solve this problem and for complete code please check the [final commit](https://github.com/nic-dgl-204-fall-2022/Prabhjot-aoc-1/commit/5e6f5b4f38e92838375c5f476be5e99ce30cc73a).
 
